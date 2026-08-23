@@ -1,0 +1,91 @@
+# ============================================================
+# Python
+# ============================================================
+
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+*.log
+
+
+# ============================================================
+# Backend generated files
+# ============================================================
+
+backend/artifacts/
+backend/__pycache__/
+backend/.pytest_cache/
+
+# Local model/data artifacts
+*.joblib
+*.pkl
+*.pickle
+
+
+# ============================================================
+# Node / Next.js
+# ============================================================
+
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+*.tsbuildinfo
+
+.vercel/
+
+coverage/
+dist/
+
+
+# ============================================================
+# Environment / Secrets
+# ============================================================
+
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+
+# ============================================================
+# Local Docker / Database files
+# ============================================================
+
+# Never commit local MongoDB data
+mongodb-data/
+mongo-data/
+data/db/
+
+# Docker overrides
+docker-compose.override.yml
+
+
+# ============================================================
+# IDE / OS
+# ============================================================
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+
+# ============================================================
+# Local planning / evaluation files
+# ============================================================
+
+assets/
+streamlit_dashboard/
+submission_evidence/
+submission_evidence/evidence_snapshot.md
+docs/
+*.pdf

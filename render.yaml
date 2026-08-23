@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: aqi-predictor-api
+    runtime: python
+    plan: free
+    region: singapore
+    rootDir: backend
+    buildCommand: pip install --upgrade pip && pip install -r requirements.deploy.txt
+    startCommand: uvicorn app.api:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: PROJECT_NAME
+        value: Pearls AQI Predictor
+      - key: CITY
+        value: Islamabad
+      - key: LATITUDE
+        value: "33.6844"
+      - key: LONGITUDE
+        value: "73.0479"
+      - key: TIMEZONE
+        value: Asia/Karachi
+      - key: MONGODB_DB_NAME
+        value: aqi_predictor
+      - key: MODEL_STORAGE_DIR
+        value: ./artifacts/models
+      - key: GITHUB_REPO
+        value: codewithsalty/aqi-predictor
+      - key: CORS_ORIGINS
+        value: http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001
+      - key: CORS_ORIGIN_REGEX
+        value: https://.*\.vercel\.app|http://localhost:\d+|http://127\.0\.0\.1:\d+
+      - key: MONGODB_URI
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false

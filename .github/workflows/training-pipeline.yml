@@ -1,0 +1,76 @@
+name: Training Pipeline
+run-name: Training Pipeline - ${{ github.event_name }} #${{ github.run_number }}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: training-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  schedule:
+    # Primary daily training run. GitHub cron is UTC, so this is 5:37 AM in Pakistan.
+    - cron: "37 0 * * *"
+    # Backup daily trigger in case the public scheduler delays or drops the primary run.
+    - cron: "7 1 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/training-pipeline.yml"
+      - "backend/app/train.py"
+      - "backend/app/predict.py"
+      - "backend/app/features.py"
+      - "backend/app/storage.py"
+      - "backend/scripts/run_train.py"
+      - "backend/scripts/run_train_if_due.py"
+      - "backend/requirements.txt"
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Show automation context
+        run: |
+          echo "event=${{ github.event_name }}"
+          echo "ref=${{ github.ref }}"
+          echo "sha=${{ github.sha }}"
+          echo "utc_now=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+      - name: Train scheduled models when due
+        if: github.event_name == 'schedule'
+        run: python -m scripts.run_train_if_due
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
+          CITY: ${{ secrets.CITY }}
+          MODEL_STORAGE_DIR: ./artifacts/models
+          TRAINING_MIN_INTERVAL_HOURS: "20"
+
+      - name: Train and register champion models for manual verification
+        if: github.event_name != 'schedule'
+        run: python -m scripts.run_train
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          MONGODB_DB_NAME: ${{ secrets.MONGODB_DB_NAME }}
+          CITY: ${{ secrets.CITY }}
+          MODEL_STORAGE_DIR: ./artifacts/models
