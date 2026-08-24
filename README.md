@@ -1,4 +1,5 @@
-﻿# Pearls AQI Predictor - Islamabad Forecast Lab
+﻿Get-Content README.md
+# Pearls AQI Predictor - Islamabad Forecast Lab
 
 [![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Vercel-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://pearls-aqi.vercel.app/)
 [![Backend API](https://img.shields.io/badge/FastAPI-Render-0f766e?style=for-the-badge&logo=fastapi&logoColor=white)](https://aqi-predictor-api-cuec.onrender.com/docs)
@@ -28,7 +29,6 @@ I built this as a working ML product, not just a notebook. The system collects l
 
 <p align="center">
   <img src="assets/readme/frontend-methodology.png" width="49%" alt="Methodology page" />
-  <img src="assets/readme/frontend-about-salman.png" width="49%" alt="About Salman page" />
 </p>
 
 ## What The System Does
@@ -228,16 +228,8 @@ The frontend reads the backend URL from its environment configuration. For local
 
 ## Final Submission
 
-The candidate portal requested a public GitHub repository link. This repository contains the working project code, deployed frontend/backend links, automation workflows, screenshots, evidence, and final report PDF.
+The candidate portal requested a public GitHub repository link. This repository contains the working project code,deployed frontend/backend links, automation workflows, screenshots, evidence, and final report PDF.
 
 Final report PDF:
 
 [documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf](documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf)
-
-## Built By
-
-Salman Khan
-
-- GitHub: https://github.com/codewithsalty
-- Live project: https://pearls-aqi.vercel.app/
-- Backend API: https://aqi-predictor-api-cuec.onrender.com/docs
