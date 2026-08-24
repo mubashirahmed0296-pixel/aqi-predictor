@@ -27,7 +27,7 @@ services:
       - key: MODEL_STORAGE_DIR
         value: ./artifacts/models
       - key: GITHUB_REPO
-        value: codewithsalty/aqi-predictor
+        value: mubashirahmed0296-pixel/aqi-predictor
       - key: CORS_ORIGINS
         value: http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001
       - key: CORS_ORIGIN_REGEX
