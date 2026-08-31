@@ -87,5 +87,3 @@ Thumbs.db
 streamlit_dashboard/
 submission_evidence/
 submission_evidence/evidence_snapshot.md
-docs/
-*.pdf
