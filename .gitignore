@@ -19,7 +19,7 @@ __pycache__/
 # Backend generated files
 # ============================================================
 
-backend/artifacts/
+
 backend/__pycache__/
 backend/.pytest_cache/
 
@@ -83,7 +83,7 @@ Thumbs.db
 # Local planning / evaluation files
 # ============================================================
 
-assets/
+
 streamlit_dashboard/
 submission_evidence/
 submission_evidence/evidence_snapshot.md
