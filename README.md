@@ -1,10 +1,4 @@
-﻿Get-Content README.md
-# Pearls AQI Predictor - Islamabad Forecast Lab
-
-[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Vercel-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://pearls-aqi.vercel.app/)
-[![Backend API](https://img.shields.io/badge/FastAPI-Render-0f766e?style=for-the-badge&logo=fastapi&logoColor=white)](https://aqi-predictor-api-cuec.onrender.com/docs)
-[![Automation](https://img.shields.io/badge/GitHub%20Actions-Automated-2563eb?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/codewithsalty/aqi-predictor/actions)
-[![MongoDB Atlas](https://img.shields.io/badge/MongoDB%20Atlas-Feature%20Store-16a34a?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
+﻿# Pearls AQI Predictor - Islamabad Forecast Lab
 
 Pearls AQI Predictor is my end-to-end Data Sciences internship project for forecasting the next 3 days of AQI in Islamabad, Pakistan.
 
@@ -14,11 +8,11 @@ I built this as a working ML product, not just a notebook. The system collects l
 
 | Item | Link |
 |---|---|
-| Live frontend | https://pearls-aqi.vercel.app/ |
-| Forecast dashboard | https://pearls-aqi.vercel.app/dashboard |
-| Backend API | https://aqi-predictor-api-cuec.onrender.com |
-| FastAPI docs | https://aqi-predictor-api-cuec.onrender.com/docs |
-| Final report PDF | [documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf](documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf) |
+| Live frontend |https://10pearls-aqi.vercel.app/|
+| Forecast dashboard |https://10pearls-aqi.vercel.app//dashboard |
+| Backend API | https://aqi-predictor-off9.onrender.com/ |
+| FastAPI docs | https://aqi-predictor-off9.onrender.com/docs |
+| Final report PDF | [documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf](documentation/Project_Report.docx) |
 
 ## Project Screenshots
 
@@ -29,6 +23,7 @@ I built this as a working ML product, not just a notebook. The system collects l
 
 <p align="center">
   <img src="assets/readme/frontend-methodology.png" width="49%" alt="Methodology page" />
+  
 </p>
 
 ## What The System Does
@@ -67,29 +62,7 @@ FastAPI Backend on Render
 Next.js Frontend on Vercel
 ```
 
-## Latest Forecast Snapshot
 
-The live backend returns the latest 3-day Islamabad forecast from the model registry.
-
-| Horizon | Date | Predicted AQI | Risk | Champion model |
-|---|---:|---:|---|---|
-| Day +1 | 2026-06-08 | 87.89 | Moderate | ridge |
-| Day +2 | 2026-06-09 | 86.41 | Moderate | random_forest |
-| Day +3 | 2026-06-10 | 100.50 | Unhealthy for Sensitive Groups | random_forest |
-
-The dashboard also supports model override, so individual trained models can be compared against the automatic horizon champions.
-
-## Model Training Summary
-
-The training pipeline reads historical features from MongoDB Atlas, creates future targets for 1-day, 2-day, and 3-day forecasting, trains all candidate models, evaluates them, and stores the full result in the cloud registry.
-
-| Horizon | Selected champion | RMSE | MAE | R2 |
-|---|---|---:|---:|---:|
-| Day +1 | ridge | 12.19 | 8.88 | 0.507 |
-| Day +2 | random_forest | 22.24 | 16.54 | -0.673 |
-| Day +3 | random_forest | 24.10 | 17.45 | -0.973 |
-
-Overall leaderboard winner: `random_forest`.
 
 ## Cloud Evidence
 
@@ -99,7 +72,7 @@ Overall leaderboard winner: `random_forest`.
   <img src="assets/readme/atlas-collections.png" width="49%" alt="MongoDB Atlas collections" />
   <img src="assets/readme/atlas-features-v1.png" width="49%" alt="MongoDB Atlas feature store" />
 </p>
-
+![![![alt text](image-2.png)](image-1.png)](image.png)
 <p align="center">
   <img src="assets/readme/atlas-model-registry.png" width="49%" alt="MongoDB Atlas model registry" />
   <img src="assets/readme/atlas-model-metrics.png" width="49%" alt="MongoDB Atlas model metrics" />
@@ -117,7 +90,6 @@ Overall leaderboard winner: `random_forest`.
 ### GitHub Actions Automation
 
 <p align="center">
-  <img src="assets/readme/github-actions-green.png" width="49%" alt="GitHub Actions green runs" />
   <img src="assets/readme/github-feature-pipeline-runs.png" width="49%" alt="Feature pipeline runs" />
 </p>
 
@@ -128,30 +100,23 @@ Overall leaderboard winner: `random_forest`.
 ### Backend and Frontend Deployments
 
 <p align="center">
-  <img src="assets/readme/render-service.png" width="49%" alt="Render backend service" />
+
   <img src="assets/readme/render-events.png" width="49%" alt="Render deploy events" />
 </p>
 
 <p align="center">
   <img src="assets/readme/vercel-deployment.png" width="49%" alt="Vercel deployment" />
-  <img src="assets/readme/vercel-logs.png" width="49%" alt="Vercel logs" />
 </p>
 
-### API, EDA, and Submission Proof
+### API, EDA , SHAP Proof
 
 <p align="center">
   <img src="assets/readme/backend-fastapi-docs.png" width="49%" alt="FastAPI docs" />
-  <img src="assets/readme/backend-api-evidence.png" width="49%" alt="Backend API evidence" />
-</p>
+  </p>
 
 <p align="center">
-  <img src="assets/readme/eda-daily-aqi-trend.png" width="49%" alt="EDA daily AQI trend" />
-  <img src="assets/readme/local-artifact-evidence.png" width="49%" alt="Local artifact evidence" />
-</p>
-
-<p align="center">
-  <img src="assets/readme/candidate-portal-submission.png" width="80%" alt="Candidate portal submission proof" />
-</p>
+  <img src="assets/readme/daily_aqi_trend.png" width="49%" alt="EDA daily AQI trend" />
+  <img src="assets/readme/shap.png" width="49%" alt="EDA daily AQI trend" /></p>
 
 ## Automation Details
 
@@ -228,8 +193,14 @@ The frontend reads the backend URL from its environment configuration. For local
 
 ## Final Submission
 
-The candidate portal requested a public GitHub repository link. This repository contains the working project code,deployed frontend/backend links, automation workflows, screenshots, evidence, and final report PDF.
+The candidate portal requested a public GitHub repository link. This repository contains the working project code, deployed frontend/backend links, automation workflows, screenshots, evidence, and final report PDF.
 
 Final report PDF:
 
-[documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf](documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf)
+[documentation/Project_Report.pdf](documentation/Project_Report.docx)
+
+## Built By
+
+- GitHub: https://github.com/mubashirahmed0296-pixel/aqi-predictor
+- Live project: https://10pearls-aqi.vercel.app/
+-backend : https://aqi-predictor-off9.onrender.com
