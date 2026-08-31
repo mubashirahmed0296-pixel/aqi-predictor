@@ -12,7 +12,7 @@ I built this as a working ML product, not just a notebook. The system collects l
 | Forecast dashboard |https://10pearls-aqi.vercel.app//dashboard |
 | Backend API | https://aqi-predictor-off9.onrender.com/ |
 | FastAPI docs | https://aqi-predictor-off9.onrender.com/docs |
-| Final report PDF | [documentation/Pearls_AQI_Predictor_Final_Internship_Report.pdf](documentation/Project_Report.docx) |
+| Final report PDF | [documentation/Project_Report.pdf](documentation/Project_Report.pdf) |
 
 ## Project Screenshots
 
@@ -197,7 +197,7 @@ The candidate portal requested a public GitHub repository link. This repository 
 
 Final report PDF:
 
-[documentation/Project_Report.pdf](documentation/Project_Report.docx)
+[documentation/Project_Report.pdf](documentation/Project_Report.pdf)
 
 ## Built By
 
